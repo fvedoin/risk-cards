@@ -1,0 +1,229 @@
+<style>
+  .cards {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  *,
+  button,
+  input {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+  }
+  :root {
+    --bg-shape-color: linear-gradient(120deg, #343a4f, #0f1620);
+    --lightblue: #3d9dea;
+    --darkblue: #4a4eee;
+    --lightgreen: #5aff15;
+    --darkgreen: #00b712;
+    --lightyellow: #eae13d;
+    --darkyellow: #777525;
+    --text-color: #d5e1ef;
+  }
+  html,
+  body {
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(90deg, #414850, #131720);
+    color: var(--text-color);
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+  }
+  .wrapper {
+    width: 80%;
+    border-radius: 40px;
+    background-image: var(--bg-shape-color);
+    overflow: hidden;
+  }
+  .overviewInfo,
+  .cardSpecifications {
+    padding: 24px;
+  }
+  .cardSpecifications {
+    display: flex;
+    gap: 16px;
+  }
+  .custom {
+    background-image: linear-gradient(
+      176deg,
+      var(--lightblue),
+      var(--darkblue)
+    );
+  }
+  .agile {
+    background-image: linear-gradient(
+      176deg,
+      var(--lightgreen),
+      var(--darkgreen)
+    );
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .actions .cartbutton {
+    position: relative;
+  }
+  .actions .cartbutton svg {
+    color: #ababab 73;
+  }
+  .actions .cartbutton {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .neurobutton {
+    background-image: var(--bg-shape-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 3px 4px 5px 0px rgba(197, 197, 197, 0.1),
+      inset 3px 6px 6px 5px rgba(78, 77, 77, 0.1),
+      -2px -2px 8px 2px rgba(255, 255, 255, 0.1),
+      2px 2px 6px 3px rgba(0, 0, 0, 0.4);
+  }
+  .productinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    min-height: 200px;
+    margin-bottom: 50px;
+  }
+  h1 {
+    font-family: "Michroma", sans-serif;
+  }
+
+  .cardSpecifications h1 {
+    margin-top: 10px;
+    margin-bottom: 16px;
+    font-size: 32px;
+  }
+  .cardSpecifications p,
+  .cardSpecifications li {
+    opacity: 0.8;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .cardSpecifications .productFeatures {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
+    margin-top: 20px;
+    /* grid-row-gap: 16px; */
+  }
+  .relations {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-image: var(--bg-shape-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: -2px -2px 2px 0px rgba(80, 80, 80, 0.1),
+      2px 2px 3px 0px rgba(12, 12, 12, 0.3),
+      inset 0px 0px 0px 2px rgba(80, 80, 80, 0.2);
+    margin-top: 30px;
+    padding: 14px;
+  }
+  .relationGroup {
+    display: block;
+    align-items: center;
+    font-size: 15px;
+  }
+  .relationGroup li {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .relationGroup span {
+    color: #488dc7;
+    font-size: 20px;
+  }
+  /* checkout button*/
+  button.preorder {
+    outline: 0;
+    border: 0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-image: linear-gradient(85deg, #61c7ef, #4833fb);
+    color: white;
+    width: 32px;
+    height: 32px;
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  ul {
+    list-style-type: none;
+  }
+  /* animation */
+  @keyframes updowncontroller {
+    0% {
+      transform: rotate(-90deg) translate(-56px, 66px);
+    }
+    80%,
+    100% {
+      transform: rotate(-70deg) translate(10px, 66px);
+    }
+  }
+</style>
+<div class="cards">
+  <div class="wrapper">
+    <div class="overviewInfo custom">
+      <div class="actions">
+        <h2>Risk Register</h2>
+        <div class="cartbutton neurobutton">
+          <img src="./resource.png" height="30px" />
+        </div>
+      </div>
+    </div>
+    <!-- overview info -->
+
+    <div class="cardSpecifications">
+      <div class="details">
+        <div>
+          <p>
+            A register of risks identified by project members and risk master.
+            It must have informations about the adopted practice to manage each
+            risk and the result of application. It will increment the Risk
+            Library and become a way of documenting organizational learning. The
+            team must define a tool to store all the data collected along with
+            the project.
+          </p>
+        </div>
+        <div class="relations">
+          <div class="relationGroup">
+            <strong>Produces:</strong>
+            <ul>
+              <li>
+                Mapped characteristics
+                <button class="preorder">
+                  <img src="./resource.png" height="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- product specificaiton -->
+  </div>
+</div>
