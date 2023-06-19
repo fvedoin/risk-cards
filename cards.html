@@ -1,0 +1,1123 @@
+<style>
+  .cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 600px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 900px) {
+    .cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  *,
+  button,
+  input {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+  }
+  :root {
+    --bg-shape-color: linear-gradient(120deg, #343a4f, #0f1620);
+    --lightblue: #3d9dea;
+    --darkblue: #4a4eee;
+    --lightgreen: #5aff15;
+    --darkgreen: #00b712;
+    --lightyellow: #eae13d;
+    --darkyellow: #777525;
+    --text-color: #d5e1ef;
+  }
+  html,
+  body {
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(90deg, #414850, #131720);
+    color: var(--text-color);
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+  }
+  .wrapper {
+    width: 370px;
+    height: 580px;
+    border-radius: 40px;
+    background-image: var(--bg-shape-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .overviewInfo,
+  .cardSpecifications {
+    padding: 20px 24px;
+  }
+  .cardSpecifications {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .custom {
+    background-image: linear-gradient(
+      176deg,
+      var(--lightblue),
+      var(--darkblue)
+    );
+  }
+  .agile {
+    background-image: linear-gradient(
+      176deg,
+      var(--lightgreen),
+      var(--darkgreen)
+    );
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .actions .cartbutton {
+    position: relative;
+  }
+  .actions .cartbutton svg {
+    color: #ababab 73;
+  }
+  .actions .cartbutton {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .neurobutton {
+    background-image: var(--bg-shape-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 3px 4px 5px 0px rgba(197, 197, 197, 0.1),
+      inset 3px 6px 6px 5px rgba(78, 77, 77, 0.1),
+      -2px -2px 8px 2px rgba(255, 255, 255, 0.1),
+      2px 2px 6px 3px rgba(0, 0, 0, 0.4);
+  }
+  .productinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    min-height: 200px;
+    margin-bottom: 50px;
+  }
+  h1 {
+    font-family: "Michroma", sans-serif;
+  }
+  /* product specifications */
+  .featureIcon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-image: var(--bg-shape-color);
+    border-radius: 8px;
+  }
+  .cardSpecifications h1 {
+    margin-top: 10px;
+    margin-bottom: 16px;
+    font-size: 32px;
+  }
+  .cardSpecifications p {
+    opacity: 0.8;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .cardSpecifications .productFeatures {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
+    margin-top: 20px;
+    /* grid-row-gap: 16px; */
+  }
+  .relations {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-image: var(--bg-shape-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: -2px -2px 2px 0px rgba(80, 80, 80, 0.1),
+      2px 2px 3px 0px rgba(12, 12, 12, 0.3),
+      inset 0px 0px 0px 2px rgba(80, 80, 80, 0.2);
+    /* margin-top: 30px; */
+    padding: 14px;
+  }
+  .relationGroup {
+    display: block;
+    align-items: center;
+    font-size: 15px;
+  }
+  .relationGroup li {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .relationGroup span {
+    color: #488dc7;
+    font-size: 20px;
+  }
+  /* checkout button*/
+  button.preorder {
+    outline: 0;
+    border: 0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-image: linear-gradient(85deg, #61c7ef, #4833fb);
+    color: white;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 6px;
+  }
+  .star {
+    height: 64px;
+    width: 64px;
+    -webkit-clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    text-align: center;
+    background: white;
+    color: #0f1620;
+  }
+
+  .star::before {
+    display: inline-block;
+    height: 100%;
+    background: blue;
+    vertical-align: middle;
+    content: "";
+  }
+  .skills {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .skill {
+    max-width: 105px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 24px 16px;
+  }
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  /* animation */
+  @keyframes updowncontroller {
+    0% {
+      transform: rotate(-90deg) translate(-56px, 66px);
+    }
+    80%,
+    100% {
+      transform: rotate(-70deg) translate(10px, 66px);
+    }
+  }
+</style>
+<div class="cards">
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo custom">
+        <div class="actions">
+          <h3><a href="alp_pract.html">Agile Risk Management</a></h3>
+          <div class="cartbutton neurobutton">
+            <img src="./alpha.png" width="25px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          This approach emphasizes structured risk identification, evaluation,
+          prevention, and response strategies for effective project risk
+          management.
+        </p>
+
+        <div class="productFeatures">
+          <div class="featureIcon">Selected</div>
+          <div class="featureIcon">Allocated</div>
+          <div class="featureIcon">Implemented</div>
+          <div class="featureIcon">Assessed</div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo custom">
+        <div class="actions">
+          <h3><a href="alp_risk.html">Risk</a></h3>
+          <div class="cartbutton neurobutton">
+            <img src="./alpha.png" width="25px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          Risks in agile methodologies can hinder project success despite their
+          flexibility; they are potential negative events impacting goals.
+        </p>
+
+        <div class="productFeatures">
+          <div class="featureIcon">Identified</div>
+          <div class="featureIcon">Analysed</div>
+          <div class="featureIcon">Documented</div>
+          <div class="featureIcon">Monitored</div>
+          <div class="featureIcon">Materialized</div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo custom">
+        <div class="actions">
+          <h3><a href="as_pracLib.html">Practices Library</a></h3>
+
+          <div class="cartbutton neurobutton">
+            <img src="./pattern.png" width="25px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          A collection of practices extracted from the literature common in
+          software projects with their descriptions and contexts. Also, for each
+          practice there are possible related risks and past experiences.
+        </p>
+        <div class="relations">
+          <div class="relationGroup">
+            <strong>Supports:</strong>
+            <ul>
+              <li>
+                Select practices
+                <button class="preorder">
+                  <img src="./activity.png" width="20px" />
+                </button>
+              </li>
+              <li>
+                Identify risks
+                <button class="preorder">
+                  <img src="./activity.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo custom">
+        <div class="actions">
+          <h3><a href="res_riskRegister.html">Risk Register</a></h3>
+          <div class="cartbutton neurobutton">
+            <img src="./resource.png" height="30px" />
+          </div>
+        </div>
+      </div>
+      <!-- overview info -->
+
+      <div class="cardSpecifications">
+        <p>
+          Risk register tracks identified risks, adopted risk management
+          practices, application results, and facilitates organizational
+          learning and documentation. Tool selection required.
+        </p>
+
+        <div class="relations">
+          <div class="relationGroup">
+            <strong>Produced by:</strong>
+            <ul>
+              <li>
+                Identify risks
+                <button class="preorder">
+                  <img src="./act_space.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Updated by:</strong>
+            <ul>
+              <li>
+                Select practices
+                <button class="preorder">
+                  <img src="./activity.png" width="20px" />
+                </button>
+              </li>
+              <li>
+                Assess practices
+                <button class="preorder">
+                  <img src="./activity.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo custom">
+        <div class="actions">
+          <h3><a href="res_mappedChar.html">Mapped characteristics</a></h3>
+          <div class="cartbutton neurobutton">
+            <img src="./resource.png" height="30px" />
+          </div>
+        </div>
+      </div>
+      <!-- overview info -->
+
+      <div class="cardSpecifications">
+        <p>
+          It offers an in-depth analysis of project characteristics and specific
+          needs.
+        </p>
+
+        <div class="relations">
+          <div class="relationGroup">
+            <strong>Produced by:</strong>
+            <ul>
+              <li>
+                Map characteristics
+                <button class="preorder">
+                  <img src="./activity.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Supports:</strong>
+            <ul>
+              <li>
+                Select practices
+                <button class="preorder">
+                  <img src="./activity.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo custom">
+        <div class="actions">
+          <h3><a href="ac_mapChar.html">Map characteristics</a></h3>
+          <div class="cartbutton neurobutton">
+            <img src="./activity.png" width="30px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          Mapping project characteristics involves analyzing attributes such as
+          product type, team size, and application domain to assess risks
+          effectively.
+        </p>
+
+        <div class="skills">
+          <div class="skill">
+            <div class="star">3</div>
+            Analysis
+          </div>
+          <div class="skill">
+            <div class="star">4</div>
+            Management
+          </div>
+        </div>
+        <div class="relations">
+          <div class="relationGroup">
+            <strong>Produces:</strong>
+            <ul>
+              <li>
+                Mapped characteristics
+                <button class="preorder">
+                  <img src="./resource.png" height="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo agile">
+        <div class="actions">
+          <h3><a href="ac_identRisks.html">Identify risks</a></h3>
+          <div class="cartbutton neurobutton">
+            <img src="./act_space.png" width="30px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          Systematically identify and document project risks by collaborating
+          with the team, leveraging expertise, past experiences, and risk
+          analysis.
+        </p>
+
+        <div class="skills">
+          <div class="skill">
+            <div class="star">2</div>
+            Stakeholder representaion
+          </div>
+          <div class="skill">
+            <div class="star">3</div>
+            Analysis
+          </div>
+        </div>
+
+        <div class="relations">
+          <div class="relationGroup">
+            <strong>Outcome:</strong>
+            <ul>
+              <li>
+                Risk identified
+                <button class="preorder">
+                  <img src="./alpha.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Produces:</strong>
+            <ul>
+              <li>
+                Risk Register
+                <button class="preorder">
+                  <img src="./resource.png" height="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Supported by:</strong>
+            <ul>
+              <li>
+                Practices Library
+                <button class="preorder">
+                  <img src="./pattern.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo agile">
+        <div class="actions">
+          <h3><a href="ac_analyRisks.html">Risks Analysis</a></h3>
+          <div class="cartbutton neurobutton">
+            <img src="./act_space.png" width="30px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          Assess and analyze identified risks to determine their impact,
+          likelihood, and priority, using previously selected practices.
+        </p>
+
+        <div class="skills">
+          <div class="skill">
+            <div class="star">3</div>
+            Analysis
+          </div>
+          <div class="skill">
+            <div class="star">4</div>
+            Management
+          </div>
+        </div>
+
+        <div class="relations">
+          <div class="relationGroup">
+            <strong>Outcome:</strong>
+            <ul>
+              <li>
+                Risk analyzed
+                <button class="preorder">
+                  <img src="./alpha.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Updates:</strong>
+            <ul>
+              <li>
+                Risk Register
+                <button class="preorder">
+                  <img src="./resource.png" height="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Supported by:</strong>
+            <ul>
+              <li>
+                Practices Library
+                <button class="preorder">
+                  <img src="./pattern.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo agile">
+        <div class="actions">
+          <h3><a href="ac_respRisks.html">Response Planning</a></h3>
+          <div class="cartbutton neurobutton">
+            <img src="./act_space.png" width="30px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          Develop risk response strategies and action plans in collaboration
+          with the team, considering risk severity, resources, and project
+          objectives.
+        </p>
+
+        <div class="skills">
+          <div class="skill">
+            <div class="star">3</div>
+            Analysis
+          </div>
+          <div class="skill">
+            <div class="star">4</div>
+            Management
+          </div>
+        </div>
+
+        <div class="relations">
+          <div class="relationGroup">
+            <strong>Outcome:</strong>
+            <ul>
+              <li>
+                Risk documented
+                <button class="preorder">
+                  <img src="./alpha.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Updates:</strong>
+            <ul>
+              <li>
+                Risk Register
+                <button class="preorder">
+                  <img src="./resource.png" height="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Supported by:</strong>
+            <ul>
+              <li>
+                Practices Library
+                <button class="preorder">
+                  <img src="./pattern.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo agile">
+        <div class="actions">
+          <h3><a href="ac_controlRisks.html">Risk Control</a></h3>
+          <div class="cartbutton neurobutton">
+            <img src="./act_space.png" width="30px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          Monitor and adjust risk mitigation strategies, implementing specific
+          practices to control and assess identified risks for minimized impact.
+        </p>
+
+        <div class="skills">
+          <div class="skill">
+            <div class="star">3</div>
+            Analysis
+          </div>
+          <div class="skill">
+            <div class="star">4</div>
+            Management
+          </div>
+        </div>
+
+        <div class="relations">
+          <div class="relationGroup">
+            <strong>Outcome:</strong>
+            <ul>
+              <li>
+                Risk monitored
+                <button class="preorder">
+                  <img src="./alpha.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Updates:</strong>
+            <ul>
+              <li>
+                Risk Register
+                <button class="preorder">
+                  <img src="./resource.png" height="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Supported by:</strong>
+            <ul>
+              <li>
+                Practices Library
+                <button class="preorder">
+                  <img src="./pattern.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo custom">
+        <div class="actions">
+          <h3><a href="ac_selectPract.html">Select practices</a></h3>
+          <div class="cartbutton neurobutton">
+            <img src="./activity.png" width="30px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          Selecting appropriate agile practices involves evaluating project
+          characteristics, risks, and constraints to choose practices aligned
+          with goals and risk management objectives.
+        </p>
+
+        <div class="skills">
+          <div class="skill">
+            <div class="star">3</div>
+            Analysis
+          </div>
+          <div class="skill">
+            <div class="star">2</div>
+            Leadership
+          </div>
+          <div class="skill">
+            <div class="star">4</div>
+            Management
+          </div>
+        </div>
+
+        <div class="relations">
+          <div class="relationGroup">
+            <div class="relationGroup">
+              <strong>Outcome:</strong>
+              <ul>
+                <li>
+                  Risk management practice selected
+                  <button class="preorder">
+                    <img src="./alpha.png" width="20px" />
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <strong>Supported by:</strong>
+            <ul>
+              <li>
+                Practices Library
+                <button class="preorder">
+                  <img src="./pattern.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Updates:</strong>
+            <ul>
+              <li>
+                Risk Register
+                <button class="preorder">
+                  <img src="./resource.png" height="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo custom">
+        <div class="actions">
+          <h3>
+            <a href="ac_allocPract.html">Allocate practices to cerimonies</a>
+          </h3>
+          <div class="cartbutton neurobutton">
+            <img src="./activity.png" width="30px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          Assign risk management practices to agile ceremonies seamlessly into
+          the project's regular workflow.
+        </p>
+        <div class="skills">
+          <div class="skill">
+            <div class="star">3</div>
+            Analysis
+          </div>
+          <div class="skill">
+            <div class="star">4</div>
+            Management
+          </div>
+        </div>
+
+        <div class="relations">
+          <div class="relationGroup">
+            <strong>Outcome:</strong>
+            <ul>
+              <li>
+                Risk management practice allocated
+                <button class="preorder">
+                  <img src="./alpha.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Supported by:</strong>
+            <ul>
+              <li>
+                Practices Library
+                <button class="preorder">
+                  <img src="./pattern.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Updates:</strong>
+            <ul>
+              <li>
+                Risk Register
+                <button class="preorder">
+                  <img src="./resource.png" height="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo custom">
+        <div class="actions">
+          <h3><a href="ac_implPract.html">Implement practices</a></h3>
+          <div class="cartbutton neurobutton">
+            <img src="./activity.png" width="30px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          Implement selected agile practices, incorporating them into
+          ceremonies, feedback loops, and collaborative decision-making for a
+          structured, transparent, and adaptable workflow.
+        </p>
+        <div class="skills">
+          <div class="skill">
+            <div class="star">3</div>
+            Analysis
+          </div>
+          <div class="skill">
+            <div class="star">4</div>
+            Management
+          </div>
+        </div>
+        <div class="relations">
+          <div class="relationGroup">
+            <strong>Outcome:</strong>
+            <ul>
+              <li>
+                Risk management practice implemented
+                <button class="preorder">
+                  <img src="./alpha.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo custom">
+        <div class="actions">
+          <h3><a href="ac_assessPract.html">Assess practices</a></h3>
+          <div class="cartbutton neurobutton">
+            <img src="./activity.png" width="30px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          Regularly assess implemented agile practices, identify areas for
+          improvement, and adjust for better risk management and project
+          outcomes.
+        </p>
+        <div class="skills">
+          <div class="skill">
+            <div class="star">3</div>
+            Analysis
+          </div>
+          <div class="skill">
+            <div class="star">2</div>
+            Stakeholder representaion
+          </div>
+          <div class="skill">
+            <div class="star">4</div>
+            Management
+          </div>
+        </div>
+        <div class="relations">
+          <div class="relationGroup">
+            <strong>Outcome:</strong>
+            <ul>
+              <li>
+                Risk management practice assessed
+                <button class="preorder">
+                  <img src="./alpha.png" width="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="relationGroup">
+            <strong>Updates:</strong>
+            <ul>
+              <li>
+                Risk Register
+                <button class="preorder">
+                  <img src="./resource.png" height="20px" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <!-- ROLES -->
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo custom">
+        <div class="actions">
+          <h3>Risk master</h3>
+          <div class="cartbutton neurobutton">
+            <img src="./pattern.png" width="25px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          Their primary responsibility is to proactively identify risks and work
+          closely with the team to develop appropriate mitigation strategies.
+          They facilitate risk assessment sessions, encourage open
+          communication, and maintain a risk register to track identified risks
+          and their respective mitigation plans. Additionally, the Risk Master
+          regularly communicates the status of risks to stakeholders, enabling
+          informed decision-making and ensuring that risks are addressed in a
+          timely and efficient manner.
+        </p>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="wrapper">
+      <div class="overviewInfo custom">
+        <div class="actions">
+          <h3>Team</h3>
+
+          <div class="cartbutton neurobutton">
+            <img src="./pattern.png" width="25px" />
+          </div>
+        </div>
+      </div>
+      <div class="cardSpecifications">
+        <p>
+          The team's collective knowledge and expertise enable a comprehensive
+          understanding of the project's potential risks, providing insights,
+          and predicting their impact on various aspects, such as scope,
+          schedule, and quality. By actively participating in risk management,
+          the team helps create a culture of accountability, transparency, and
+          proactiveness, ensuring that risks are effectively managed and the
+          project's success is maximized.
+        </p>
+      </div>
+      <div class="footer">
+        <img src="./qr_code.png" width="48px" height="48px" />
+        <p>Nome do Modelo</p>
+        <img src="./ufsc.png" height="48px" />
+      </div>
+    </div>
+  </div>
+</div>
