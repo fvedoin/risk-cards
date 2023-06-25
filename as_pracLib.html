@@ -32,6 +32,9 @@
     background-image: linear-gradient(90deg, #414850, #131720);
     color: var(--text-color);
   }
+  a {
+    color: var(--text-color);
+  }
   body {
     display: flex;
     justify-content: center;
@@ -173,9 +176,7 @@
     flex-direction: column;
     justify-content: space-between;
   }
-  ul {
-    list-style-type: none;
-  }
+
   /* animation */
   @keyframes updowncontroller {
     0% {
@@ -202,6 +203,7 @@
     <div class="cardSpecifications">
       <div class="details">
         <div>
+          <h3>Details</h3>
           <p>
             This comprehensive compilation consists of a wide array of practices
             extracted from extensive literature, which were employed in some
@@ -244,6 +246,39 @@
             </ul>
           </div>
         </div>
+      </div>
+      <div class="guidelines">
+        <h3>Guidelines</h3>
+        <ul>
+          <li>
+            The practices are available
+            <a
+              href="https://docs.google.com/spreadsheets/d/11C5QdTp68EfFybO8-d7RlUqFzD8QTBypsNI4IOXGRsY/edit?usp=sharing"
+              target="_blank"
+              >here</a
+            >.
+          </li>
+          <li>
+            On "Practices" page, you can see all the practices with a brief
+            description and its source with more informations available.
+          </li>
+          <li>
+            On "Risks" page, there are some risks that were managed by the
+            practices.
+          </li>
+          <li>
+            On "Previous experiences" page, you can find some caracteristics of
+            previous projects which the practices were applied. The risk
+            management processes that the practices were inserted are available
+            as well. You should take this into account to decide if the practice
+            fits your project.
+          </li>
+          <li>
+            On "Previous results" there are some comments about the previous
+            applications. You can use this insights to decide if the previous
+            implementations were successful.
+          </li>
+        </ul>
       </div>
     </div>
     <!-- product specificaiton -->
