@@ -117,7 +117,6 @@
   }
   .cardSpecifications .productFeatures {
     display: flex;
-    flex-direction: column;
     gap: 8px;
     /* display: grid; */
     /* grid-template-columns: 1fr 1fr; */
@@ -171,9 +170,7 @@
     flex-direction: column;
     justify-content: space-between;
   }
-  ul {
-    list-style-type: none;
-  }
+
   .star {
     height: 100px;
     width: 100px;
@@ -227,13 +224,30 @@
     text-align: center;
   }
   .featureIcon {
-    width: 100%;
+    width: 25%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 40px;
+    /* height: 80px; */
     background-image: var(--bg-shape-color);
     border-radius: 8px;
+  }
+  @media only screen and (max-width: 1000px) {
+    .cardSpecifications .productFeatures {
+      flex-direction: column;
+    }
+    .featureIcon {
+      width: 100%;
+    }
+  }
+  .featureIcon > p {
+    font-size: 20px;
+    margin: 8px 0;
+  }
+
+  .featureIcon > ul {
+    width: 80%;
+    margin-bottom: 8px;
   }
   /* animation */
   @keyframes updowncontroller {
@@ -273,10 +287,34 @@
           </p>
         </div>
         <div class="productFeatures">
-          <div class="featureIcon">Selected</div>
-          <div class="featureIcon">Allocated</div>
-          <div class="featureIcon">Implemented</div>
-          <div class="featureIcon">Assessed</div>
+          <div class="featureIcon">
+            <p>Selected</p>
+            <ul>
+              <li>Context defined</li>
+              <li>Practices filtered according to context</li>
+              <li>Practices selected</li>
+            </ul>
+          </div>
+          <div class="featureIcon">
+            <p>Allocated</p>
+            <ul>
+              <li>Best fit ceremony selected</li>
+              <li>Practice allocated to the ceremony</li>
+            </ul>
+          </div>
+          <div class="featureIcon">
+            <p>Implemented</p>
+            <ul>
+              <li>Practice activities implemented</li>
+            </ul>
+          </div>
+          <div class="featureIcon">
+            <p>Assessed</p>
+            <ul>
+              <li>Assessment metrics defined</li>
+              <li>Practices assessed through metrics</li>
+            </ul>
+          </div>
         </div>
         <div class="relations">
           <div class="relationGroup">

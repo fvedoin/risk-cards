@@ -116,17 +116,34 @@
     line-height: 1.5;
   }
   .featureIcon {
-    width: 100%;
+    width: 25%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 40px;
+    /* height: 80px; */
     background-image: var(--bg-shape-color);
     border-radius: 8px;
   }
+  @media only screen and (max-width: 1000px) {
+    .cardSpecifications .productFeatures {
+      flex-direction: column;
+    }
+    .featureIcon {
+      width: 100%;
+    }
+  }
+  .featureIcon > p {
+    font-size: 20px;
+    margin: 8px 0;
+  }
+
+  .featureIcon > ul {
+    width: 70%;
+    margin-bottom: 8px;
+  }
   .cardSpecifications .productFeatures {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 8px;
     /* display: grid; */
     /* grid-template-columns: 1fr 1fr; */
@@ -179,9 +196,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-  ul {
-    list-style-type: none;
   }
   .star {
     height: 100px;
@@ -271,11 +285,37 @@
           </p>
         </div>
         <div class="productFeatures">
-          <div class="featureIcon">Identified</div>
-          <div class="featureIcon">Analysed</div>
-          <div class="featureIcon">Documented</div>
-          <div class="featureIcon">Monitored</div>
-          <div class="featureIcon">Materialized</div>
+          <div class="featureIcon">
+            <p>Identified</p>
+            <ul>
+              <li>Risk identified</li>
+            </ul>
+          </div>
+          <div class="featureIcon">
+            <p>Analysed</p>
+            <ul>
+              <li>Risk management planned</li>
+              <li>Risk adressed</li>
+            </ul>
+          </div>
+          <div class="featureIcon">
+            <p>Documented</p>
+            <ul>
+              <li>Risk updated on Risk Register</li>
+            </ul>
+          </div>
+          <div class="featureIcon">
+            <p>Monitored</p>
+            <ul>
+              <li>Risk tracked</li>
+            </ul>
+          </div>
+          <div class="featureIcon">
+            <p>Materialized</p>
+            <ul>
+              <li>Risk affected the project</li>
+            </ul>
+          </div>
         </div>
         <div class="relations">
           <div class="relationGroup">
