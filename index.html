@@ -147,6 +147,43 @@
   #text-link {
     color: var(--text-color);
   }
+
+  .tabs {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 0;
+    cursor: pointer;
+    background-color: #3b424a;
+    width: 50%;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .tab:hover {
+    background-color: #2b3139;
+  }
+
+  /* Style the active tab */
+  .active {
+    background-color: #1d222b;
+  }
+  .image {
+    justify-content: center;
+    align-items: center;
+    min-width: 60%;
+    margin-top: -16px;
+    border: 3px solid;
+    border-image: linear-gradient(85deg, #61c7ef, #4833fb);
+    border-image-slice: 1;
+    padding: 8px;
+  }
 </style>
 <h1>AGREED - Agile Risk Management Model</h1>
 <p>
@@ -187,88 +224,190 @@
   In the diagram below, you can navigate through the main elements of the model.
   Happy exploring!
 </p>
-<img src="model.png" width="1000px" usemap="#linkmap" />
 
-<map name="linkmap">
-  <area shape="rect" coords="0,158,120,218" alt="Risk" href="alp_risk.html" />
-  <area
-    shape="rect"
-    coords="220,310,340,370"
-    alt="Identify Risks"
-    href="ac_identRisks.html"
+<div class="tabs">
+  <!-- Tab buttons -->
+  <div class="tab active" onclick="showImage(1)">Flow View</div>
+  <div class="tab" onclick="showImage(2)">Conceptual View</div>
+</div>
+
+<!-- Image containers -->
+<div class="image" id="image1">
+  <img
+    src="activities_diagram.png"
+    width="705px"
+    alt="Activities diagram"
+    usemap="#acmap"
   />
-  <area
-    shape="rect"
-    coords="225,382,345,442"
-    alt="Risks Analysis"
-    href="ac_analyRisks.html"
+  <map name="acmap">
+    <area
+      shape="rect"
+      coords="381,47,496,87"
+      alt="Identify Risks"
+      href="ac_identRisks.html"
+    />
+    <area
+      shape="rect"
+      coords="381,97,496,137"
+      alt="Risks Analysis"
+      href="ac_analyRisks.html"
+    />
+    <area
+      shape="rect"
+      coords="381,150,496,190"
+      alt="Response Planning"
+      href="ac_respRisks.html"
+    />
+    <area
+      shape="rect"
+      coords="381,203,496,243"
+      alt="Control Risks"
+      href="ac_controlRisks.html"
+    />
+    <area
+      shape="rect"
+      coords="61,105,161,155"
+      alt="Map characteristics"
+      href="ac_mapChar.html"
+    />
+    <area
+      shape="rect"
+      coords="166,34,286,84"
+      alt="Select practices"
+      href="ac_selectPract.html"
+    />
+    <area
+      shape="rect"
+      coords="174,171,274,221"
+      alt="Allocate practices to ceremonies"
+      href="ac_allocPract.html"
+    />
+    <area
+      shape="rect"
+      coords="604,106,704,161"
+      alt="Assess practices"
+      href="ac_assessPract.html"
+    />
+    <area
+      shape="rect"
+      coords="343,0,533,40"
+      alt="Implement practices"
+      href="ac_implPract.html"
+    />
+  </map>
+</div>
+<div class="image" id="image2">
+  <img
+    src="model.png"
+    width="1000px"
+    usemap="#linkmap"
+    alt="Conceptual diagram"
   />
-  <area
-    shape="rect"
-    coords="212,458,362,518"
-    alt="Response Planning"
-    href="ac_respRisks.html"
-  />
-  <area
-    shape="rect"
-    coords="223,526,343,586"
-    alt="Control Risks"
-    href="ac_controlRisks.html"
-  />
-  <area
-    shape="rect"
-    coords="359,125,559,185"
-    alt="Risk Management Practice"
-    href="alp_pract.html"
-  />
-  <area
-    shape="rect"
-    coords="636,150,796,210"
-    alt="Map characteristics"
-    href="ac_mapChar.html"
-  />
-  <area
-    shape="rect"
-    coords="644,222,784,282"
-    alt="Select practices"
-    href="ac_selectPract.html"
-  />
-  <area
-    shape="rect"
-    coords="646,303,786,383"
-    alt="Allocate practices to ceremonies"
-    href="ac_allocPract.html"
-  />
-  <area
-    shape="rect"
-    coords="646,404,786,464"
-    alt="Assess practices"
-    href="ac_assessPract.html"
-  />
-  <area
-    shape="rect"
-    coords="636,484,801,544"
-    alt="Implement practices"
-    href="ac_implPract.html"
-  />
-  <area
-    shape="rect"
-    coords="831,453,971,513"
-    alt="Practices library"
-    href="as_pracLib.html"
-  />
-  <area
-    shape="rect"
-    coords="852,185,972,273"
-    alt="Mapped characteristics"
-    href="res_mappedChar.html"
-  />
-  <area
-    shape="rect"
-    coords="529,21,629,101"
-    alt="Risk register"
-    href="res_riskRegister.html"
-  />
-</map>
+
+  <map name="linkmap">
+    <area shape="rect" coords="0,158,120,218" alt="Risk" href="alp_risk.html" />
+    <area
+      shape="rect"
+      coords="220,310,340,370"
+      alt="Identify Risks"
+      href="ac_identRisks.html"
+    />
+    <area
+      shape="rect"
+      coords="225,382,345,442"
+      alt="Risks Analysis"
+      href="ac_analyRisks.html"
+    />
+    <area
+      shape="rect"
+      coords="212,458,362,518"
+      alt="Response Planning"
+      href="ac_respRisks.html"
+    />
+    <area
+      shape="rect"
+      coords="223,526,343,586"
+      alt="Control Risks"
+      href="ac_controlRisks.html"
+    />
+    <area
+      shape="rect"
+      coords="359,125,559,185"
+      alt="Risk Management Practice"
+      href="alp_pract.html"
+    />
+    <area
+      shape="rect"
+      coords="636,150,796,210"
+      alt="Map characteristics"
+      href="ac_mapChar.html"
+    />
+    <area
+      shape="rect"
+      coords="644,222,784,282"
+      alt="Select practices"
+      href="ac_selectPract.html"
+    />
+    <area
+      shape="rect"
+      coords="646,303,786,383"
+      alt="Allocate practices to ceremonies"
+      href="ac_allocPract.html"
+    />
+    <area
+      shape="rect"
+      coords="646,404,786,464"
+      alt="Assess practices"
+      href="ac_assessPract.html"
+    />
+    <area
+      shape="rect"
+      coords="636,484,801,544"
+      alt="Implement practices"
+      href="ac_implPract.html"
+    />
+    <area
+      shape="rect"
+      coords="831,453,971,513"
+      alt="Practices library"
+      href="as_pracLib.html"
+    />
+    <area
+      shape="rect"
+      coords="852,185,972,273"
+      alt="Mapped characteristics"
+      href="res_mappedChar.html"
+    />
+    <area
+      shape="rect"
+      coords="529,21,629,101"
+      alt="Risk register"
+      href="res_riskRegister.html"
+    />
+  </map>
+</div>
 
 <a id="button-link" href="cards.html">See all cards</a>
+
+<script>
+  // Function to show the selected image and hide others
+  function showImage(tabNumber) {
+    const images = document.querySelectorAll(".image");
+    for (let i = 0; i < images.length; i++) {
+      images[i].style.display = "none";
+    }
+
+    const selectedImage = document.getElementById("image" + tabNumber);
+    if (selectedImage) {
+      selectedImage.style.display = "flex";
+    }
+    const tabs = document.querySelectorAll(".tab");
+    for (let i = 0; i < tabs.length; i++) {
+      tabs[i].classList.remove("active");
+    }
+    tabs[tabNumber - 1].classList.add("active");
+  }
+
+  // By default, the first tab is shown
+  showImage(1);
+</script>
